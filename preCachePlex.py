@@ -14,7 +14,7 @@ from plexapi.video import Episode
 
 PLEX_URL = 'http://127.0.0.1:32400'
 PLEX_TOKEN = ''
-you're importing CONFIG but not using it. Add
+
 if not PLEX_URL:
     PLEX_URL = CONFIG.data['auth'].get('server_baseurl')
 if not PLEX_TOKEN:
