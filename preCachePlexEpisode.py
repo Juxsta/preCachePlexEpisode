@@ -20,12 +20,7 @@ if not PLEX_URL:
 if not PLEX_TOKEN:
     PLEX_TOKEN = CONFIG.data['auth'].get('server_token') 
 
-sess = requests.Session()
-sess.verify = False  # '/path/to/certfile'
-if sess.verify is False:
-    import urllib3
-    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-plex = PlexServer(PLEX_URL, PLEX_TOKEN, session=sess)
+plex = PlexServer(PLEX_URL, PLEX_TOKEN)
 currentlyPlaying = plex.sessions()
 
 
