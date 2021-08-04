@@ -10,10 +10,15 @@ import os
 import psutil
 from plexapi.server import PlexServer, CONFIG
 from plexapi.exceptions import NotFound
-from plexapi.video import Episode, Movie
+from plexapi.video import Episode
 
 PLEX_URL = 'http://127.0.0.1:32400'
 PLEX_TOKEN = ''
+you're importing CONFIG but not using it. Add
+if not PLEX_URL:
+    PLEX_URL = CONFIG.data['auth'].get('server_baseurl')
+if not PLEX_TOKEN:
+    PLEX_TOKEN = CONFIG.data['auth'].get('server_token') 
 
 sess = requests.Session()
 sess.verify = False  # '/path/to/certfile'
