@@ -30,12 +30,13 @@ for episode in currentlyPlaying:
         seasonNumber = episode.parentIndex
         filename = episode.media[0].parts[0].file
         episodeNumber = episode.index
+        episodeSection = episode.librarySectionTitle
         print("Show: " + show)
         print("Season: " + str(seasonNumber))
         print("Ep Num: " + str(episodeNumber))
 
         def nextEpisode(show, seasonNumber, episodeNumber):
-            episodes = plex.library.section('TV Shows').get(show).episodes()
+            episodes = plex.library.section(episodeSection).get(show).episodes()
             try:
                 index = next(i for i, ep in enumerate(episodes) if ep.seasonNumber == seasonNumber and ep.episodeNumber == episodeNumber)
                 return episodes[index + 1]
