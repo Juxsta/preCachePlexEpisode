@@ -63,7 +63,8 @@ for episode in currentlyPlaying:
                  if proc.cmdline()[2] in fileToCache: 
                      print("File is already being cached: " + fileToCache)
                      startCache = 0
-                         
+                     
+        if startCache == 1 and fileToCache:                
           print("Starting cache of " + fileToCache)
           bashCommand = "nohup rclone md5sum '" + fileToCache + "' &"      
           os.system(bashCommand)
