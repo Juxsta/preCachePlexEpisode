@@ -66,5 +66,5 @@ for episode in currentlyPlaying:
                      
         if startCache == 1 and fileToCache:                
           print("Starting cache of " + fileToCache)
-          bashCommand = "nohup rclone md5sum '" + fileToCache + "' &"      
+          bashCommand = 'nohup rclone md5sum "' + fileToCache + '" &'      
           os.system(bashCommand)
