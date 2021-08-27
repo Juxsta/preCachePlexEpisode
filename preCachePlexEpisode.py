@@ -12,13 +12,13 @@ from plexapi.server import PlexServer, CONFIG
 from plexapi.exceptions import NotFound
 from plexapi.video import Episode
 
-PLEX_URL = 'http://127.0.0.1:32400'
-PLEX_TOKEN = ''
+PLEX_URL = os.environ['PLEX_URL']
+PLEX_TOKEN = os.environ['PLEX_TOKEN']
 
 if not PLEX_URL:
     PLEX_URL = CONFIG.data['auth'].get('server_baseurl')
 if not PLEX_TOKEN:
-    PLEX_TOKEN = CONFIG.data['auth'].get('server_token') 
+    PLEX_TOKEN = CONFIG.data['auth'].get('server_token')
 
 plex = PlexServer(PLEX_URL, PLEX_TOKEN)
 currentlyPlaying = plex.sessions()
