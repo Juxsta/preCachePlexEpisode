@@ -20,7 +20,7 @@ if not PLEX_URL:
 if not PLEX_TOKEN:
     PLEX_TOKEN = CONFIG.data['auth'].get('server_token')
 
-plex = PlexServer(PLEX_URL, PLEX_TOKEN)
+plex = PlexServer(PLEX_URL, PLEX_TOKEN,requests)
 currentlyPlaying = plex.sessions()
 
 
