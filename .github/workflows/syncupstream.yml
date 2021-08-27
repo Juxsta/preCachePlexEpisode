@@ -33,7 +33,7 @@ jobs:
           # git push origin feature/x
 
           git checkout master
-          git rebase --no-edit upstream/master
+          git rebase upstream/master
           git push origin master
 
           # etc
